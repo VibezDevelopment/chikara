@@ -9,7 +9,7 @@ const path = require("path");
 const cleverbot = require("cleverbot.io");
 const client = new Discord.Client();
 console.timeEnd('Modules');
-             
+
 console.time('Client')           
 client.config = require("./config.js");
 // client.config.token  bot's token
@@ -25,8 +25,10 @@ client.settings = new Enmap({
   cloneLevel: 'deep',
   ensureProps: true
 });
+client.invites = {};
 client.wait = promisify(setTimeout);
-console.timeEnd('Client')       
+console.timeEnd('Client')      
+ 
 const init = async () => {
   console.time('Commands');
   const cmdFiles = await readdir("./commands/");

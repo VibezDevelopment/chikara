@@ -1,5 +1,5 @@
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
-  const Discord = require('discord.js');
+
   const yt = require('ytdl-core');
     const voiceChannel = message.member.voiceChannel;
     if (!voiceChannel) {
@@ -25,6 +25,6 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   exports.help = {
     name: "yt",
     category: "Music",
-    description: "Plays ",
+    description: "Plays a specifc song then leaves chat.",
     usage: "yt"
   };

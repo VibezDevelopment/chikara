@@ -1,6 +1,11 @@
 module.exports = async client => {
   await client.wait(1000);
-
+  client.guilds.forEach(g => {
+    g.fetchInvites().then(guildInvites => {
+      client.invites[g.id] = guildInvites;
+    });
+  });
+  
   client.appInfo = await client.fetchApplication();
   setInterval( async () => {
     client.appInfo = await client.fetchApplication();
