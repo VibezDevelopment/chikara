@@ -18,7 +18,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 		message.channel.send(`Playing: **${song.title}** as requested by: **${song.requester}**`);
 		
 		let dispatcher = message.guild.voiceConnection.playStream(yt(song.url, { audioonly: true }), { passes: settings.passes });
-		let collector = message.channel.messageCollecter(m => m);
+		let collector = message.channel.createCollecter(m => m);
 		collector.on('message', m => {
 			if (m.content.startsWith(settings.prefix + 'pause')) {
 				message.channel.send('paused').then(() => { dispatcher.pause(); });
