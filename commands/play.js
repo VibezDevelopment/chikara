@@ -29,14 +29,14 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
 				message.channel.send('skipped').then(() => { dispatcher.end(); });
 				
 			} else if (m.content.startsWith(settings.prefix + 'volume+')) {
-				if (Math.round(dispatcher.volume * 50) >= 100) return message.channel.send(`Volume: ${Math.round(dispatcher.volume * 50)}%`);
-				dispatcher.setVolume(Math.min((dispatcher.volume * 50 + (2 * (m.content.split('+').length - 1))) / 50, 2));
-				message.channel.send(`Volume: ${Math.round(dispatcher.volume * 50)}%`);
+				if (Math.round(dispatcher.volume * 75) >= 100) return message.channel.send(`Volume: ${Math.round(dispatcher.volume * 75)}%`);
+				dispatcher.setVolume(Math.min((dispatcher.volume * 75 + (15 * (m.content.split('+').length - 1))) / 75, 15));
+				message.channel.send(`Volume: ${Math.round(dispatcher.volume * 75)}%`);
 				
 			} else if (m.content.startsWith(settings.prefix + 'volume-')) {
-				if (Math.round(dispatcher.volume * 50) <= 0) return message.channel.send(`Volume: ${Math.round(dispatcher.volume * 50)}%`);
-				dispatcher.setVolume(Math.max((dispatcher.volume * 50 - (2 * (m.content.split('-').length - 1))) / 50, 0));
-				message.channel.send(`Volume: ${Math.round(dispatcher.volume * 50)}%`);
+				if (Math.round(dispatcher.volume * 75) <= 0) return message.channel.send(`Volume: ${Math.round(dispatcher.volume * 75)}%`);
+				dispatcher.setVolume(Math.max((dispatcher.volume * 75 - (15 * (m.content.split('-').length - 1))) / 75, 0));
+				message.channel.send(`Volume: ${Math.round(dispatcher.volume * 75)}%`);
 				
 			} else if (m.content.startsWith(settings.prefix + 'time')) {
 				message.channel.send(`time: ${Math.floor(dispatcher.time / 60000)}:${Math.floor((dispatcher.time % 60000) / 1000) < 10 ? '0' + Math.floor((dispatcher.time % 60000) / 1000) : Math.floor((dispatcher.time % 60000) / 1000)}`);
