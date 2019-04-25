@@ -2,7 +2,7 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
   const yt = require('ytdl-core'),
         settings = message.settings;
   let url = message.content.split(' ')[1],
-      queue = {};
+      queue = client.queue;
 
   if (url == '' || url === undefined) return message.channel.send(`You must add a YouTube video url, or id after ${settings.prefix}add`);
 
